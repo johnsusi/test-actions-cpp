@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.29)
+project(HelloWorld LANGUAGES CXX)
+add_executable(main)
+target_sources(main PRIVATE main.cpp)
+target_compile_features(main PRIVATE cxx_std_20)
