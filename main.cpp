@@ -1,7 +1,7 @@
-#include <iostream>
+#include <hello/hello.cpp>
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Hello, World!" << std::endl;
+    hello();
     return 0;
 }
