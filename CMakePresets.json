@@ -1,0 +1,20 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 28,
+        "patch": 3
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "hidden": false,
+            "description": "Default configuration",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/out/${presetName}/build",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+            }
+        }
+    ]
+}
