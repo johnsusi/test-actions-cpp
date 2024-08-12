@@ -33,13 +33,14 @@ jobs:
           - os: windows-2019
             preset: msvc16-x64
           - os: windows-2019
-            preset: msvc16-arm64x
+            preset: msvc16-arm64
           - os: windows-2022
             preset: msvc17-x64
           - os: windows-2022
             preset: msvc17-arm64
     steps:
     - uses: actions/checkout@v4
+    - uses: seanmiddleditch/gha-setup-ninja@master
 
     - name: Configure CMake
       run: cmake -B ${{ github.workspace }}/out/default/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -S ${{ github.workspace }} --preset ${{ matrix.builds.preset }}
