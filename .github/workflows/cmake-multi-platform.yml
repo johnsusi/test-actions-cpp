@@ -18,6 +18,26 @@ jobs:
           - Debug
           - Release
         builds:
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-gcc12
+          - os: ubuntu-24.04
+            preset: ninja-gcc13
+          - os: ubuntu-24.04
+            preset: ninja-gcc14
+          - os: windows-2019
+            preset: msvc16-x64
+          - os: windows-2019
+            preset: msvc16-arm64
+            skip:
+              - test
+          - os: windows-2022
+            preset: msvc17-x64
           - os: windows-2022
             preset: msvc17-arm64
             skip:
@@ -33,5 +53,5 @@ jobs:
       run: cmake --build ${{ github.workspace }}/out/default/build --config ${{ matrix.build_type }}
 
     - name: Test
-      if: ${{ ! contains(matrix.builds.skip, 'test') }}
+      if: ${{ !contains(matrix.builds.skip, 'test') }}
       run: ctest --test-dir ${{ github.workspace }}/out/default/build --build-config ${{ matrix.build_type }}
