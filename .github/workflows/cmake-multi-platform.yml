@@ -18,15 +18,31 @@ jobs:
           - Debug
           - Release
         builds:
-          - os: ubuntu-latest
-            cpp: g++-12
-          - os: windows2022
-            cpp: cl
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-clang16
+          - os: ubuntu-24.04
+            preset: ninja-gcc12
+          - os: ubuntu-24.04
+            preset: ninja-gcc13
+          - os: ubuntu-24.04
+            preset: ninja-gcc14
+          - os: windows-2019
+            preset: msvc16-x64
+          - os: windows-2019
+            preset: msvc16-arm64x
+          - os: windows-2022
+            preset: msvc17-x64
+          - os: windows-2022
+            preset: msvc17-arm64
     steps:
     - uses: actions/checkout@v4
 
     - name: Configure CMake
-      run: cmake -B ${{ github.workspace }}/out/default/build -DCMAKE_CXX_COMPILER=${{ matrix.builds.cpp }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -S ${{ github.workspace }} --preset default
+      run: cmake -B ${{ github.workspace }}/out/default/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -S ${{ github.workspace }} --preset ${{ matrix.builds.preset }}
 
     - name: Build
       run: cmake --build ${{ github.workspace }}/out/default/build --config ${{ matrix.build_type }}

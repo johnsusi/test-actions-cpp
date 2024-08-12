@@ -14,6 +14,143 @@
             "cacheVariables": {
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
             }
+        },
+        {
+            "name": "msvc16",
+            "hidden": true,
+            "generator": "Visual Studio 16 2019"
+        },
+        {
+            "name": "msvc17",
+            "hidden": true,
+            "generator": "Visual Studio 17 2022"
+        },
+        {
+            "name": "ninja",
+            "hidden": true,
+            "generator": "Ninja Multi-Config"
+        },
+        {
+            "name": "clang16",
+            "hidden": true,
+            "environment": {
+                "cxx": "clang++16"
+            }
+        },
+        {
+            "name": "clang17",
+            "hidden": true,
+            "environment": {
+                "cxx": "clang++17"
+            }
+        },
+        {
+            "name": "clang18",
+            "hidden": true,
+            "environment": {
+                "cxx": "clang++18"
+            }
+        },
+        {
+            "name": "gcc12",
+            "hidden": true,
+            "environment": {
+                "cxx": "gcc++12"
+            }
+        },
+        {
+            "name": "gcc13",
+            "hidden": true,
+            "environment": {
+                "cxx": "gcc++13"
+            }
+        },
+        {
+            "name": "gcc14",
+            "hidden": true,
+            "environment": {
+                "cxx": "gcc++14"
+            }
+        },
+        {
+            "name": "msvc16-x64",
+            "inherits": [
+                "default",
+                "msvc16"
+            ],
+            "architecture": "x64"
+        },
+        {
+            "name": "msvc16-arm64",
+            "inherits": [
+                "default",
+                "msvc16"
+            ],
+            "architecture": "arm64"
+        },
+        {
+            "name": "msvc17-x64",
+            "inherits": [
+                "default",
+                "msvc17"
+            ],
+            "architecture": "x64"
+        },
+        {
+            "name": "msvc17-arm64",
+            "inherits": [
+                "default",
+                "msvc17"
+            ],
+            "architecture": "arm64"
+        },
+        {
+            "name": "ninja-clang16",
+            "inherits": [
+                "default",
+                "ninja",
+                "clang16"
+            ]
+        },
+        {
+            "name": "ninja-clang17",
+            "inherits": [
+                "default",
+                "ninja",
+                "clang17"
+            ]
+        },
+        {
+            "name": "ninja-clang18",
+            "inherits": [
+                "default",
+                "ninja",
+                "clang18"
+            ]
+        },
+        {
+            "name": "ninja-gcc12",
+            "inherits": [
+                "default",
+                "ninja",
+                "gcc12"
+            ]
+        },
+        {
+            "name": "ninja-gcc13",
+            "inherits": [
+                "default",
+                "ninja",
+                "gcc13"
+            ]
+        },
+        {
+            "name": "ninja-gcc14",
+            "inherits": [
+                "default",
+                "ninja",
+                "gcc14"
+            ]
         }
     ]
 }
