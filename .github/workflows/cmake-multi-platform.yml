@@ -34,19 +34,24 @@ jobs:
             preset: msvc16-x64
           - os: windows-2019
             preset: msvc16-arm64
+            skip:
+              - test
           - os: windows-2022
             preset: msvc17-x64
           - os: windows-2022
             preset: msvc17-arm64
+            skip:
+              - test
     steps:
     - uses: actions/checkout@v4
     - uses: seanmiddleditch/gha-setup-ninja@master
 
-    - name: Configure CMake
+    - name: Configure
       run: cmake -B ${{ github.workspace }}/out/default/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -S ${{ github.workspace }} --preset ${{ matrix.builds.preset }}
 
     - name: Build
       run: cmake --build ${{ github.workspace }}/out/default/build --config ${{ matrix.build_type }}
 
     - name: Test
+      if: ${{ contains(matrix.builds.skip, 'test') }}
       run: ctest --test-dir ${{ github.workspace }}/out/default/build --build-config ${{ matrix.build_type }}
